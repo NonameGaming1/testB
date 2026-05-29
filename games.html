@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Enhanced Webpage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            padding: 50px;
+        }
+        h1 { color: #333; }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover { background-color: #0056b3; }
+        /* Navigation Bar Styling */
+        
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D S-V Agreement: 5-Level Showdown!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;900&display=swap');
+
+        :root {
+            --alpha-glow: #4af2ff;
+            --bravo-glow: #ff9f43;
+            --success: #7ed321;
+            --danger: #ff4757;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #1e0b36 0%, #0c0214 100%);
+            margin: 0;
+            padding: 10px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 34px;
+            text-align: center;
+            margin: 5px 0;
+            background: linear-gradient(to bottom, #fff 40%, #ff9ff3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+        }
+
+        #game-container {
+            width: 100%;
+            max-width: 1400px;
+            box-sizing: border-box;
+        }
+
+        .screen { display: none; }
+        .active { display: block; }
+
+        /* --- SETUP SCREEN --- */
+        .setup-box {
+            max-width: 650px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 4px solid rgba(255, 255, 255, 0.15);
+            padding: 35px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .setup-box h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 26px;
+            margin-top: 0;
+        }
+
+        .setup-inputs {
+            display: flex;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .input-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .input-card.a { border: 3px solid #00d2d3; }
+        .input-card.b { border: 3px solid #ff9f43; }
+
+        input[type="text"] {
+            width: 85%;
+            padding: 12px;
+            font-size: 18px;
+            font-family: 'Fredoka One', cursive;
+            border: none;
+            border-radius: 12px;
+            text-align: center;
+            background: #fff;
+            color: #333;
+            box-shadow: 0 5px 0 #bbb;
+        }
+
+        .start-btn {
+            font-family: 'Fredoka One', cursive;
+            padding: 15px 45px;
+            font-size: 24px;
+            color: white;
+            background: linear-gradient(to bottom, #7ed321, #56a113);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #3d750a, 0 10px 20px rgba(0,0,0,0.4);
+            transition: all 0.1s ease;
+        }
+
+        .start-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #3d750a, 0 5px 10px rgba(0,0,0,0.4);
+        }
+
+        /* --- GAMEPLAY SCREEN --- */
+        .timer-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        #timer-bubble {
+            font-family: 'Fredoka One', cursive;
+            background: radial-gradient(circle at 30% 30%, #ff4757, #ff2a3a);
+            padding: 8px 30px;
+            font-size: 28px;
+            border-radius: 40px;
+            border: 3px solid #fff;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+
+        .split-arena {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .game-side {
+            flex: 1;
+            border-radius: 24px;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border: 4px solid #fff;
+        }
+
+        .side-a {
+            background: linear-gradient(180deg, #1b143a 0%, #09061c 100%);
+            box-shadow: 0 0 25px rgba(74, 242, 255, 0.15);
+        }
+
+        .side-b {
+            background: linear-gradient(180deg, #fff2cc 0%, #ffdf94 100%);
+            box-shadow: 0 0 25px rgba(255, 159, 67, 0.15);
+            color: #4d2600;
+        }
+
+        .side-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            font-family: 'Fredoka One', cursive;
+            margin-bottom: 10px;
+        }
+
+        .side-a .team-title { text-shadow: 0 0 10px var(--alpha-glow); color: #fff; }
+        .side-b .team-title { color: #814700; }
+
+        .meta-pills {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-weight: 900;
+        }
+        .side-b .pill { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.15); color: #4d2600; }
+        .pill.level-pill { background: #ff9f43; color: white; border: none; }
+        .side-a .pill.level-pill { background: #00d2d3; }
+
+        .question-box {
+            min-height: 75px;
+            background: rgba(255, 255, 255, 0.98);
+            color: #222;
+            padding: 12px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: inset 0 -5px 0 #ddd, 0 6px 12px rgba(0,0,0,0.15);
+            border: 2px solid #fff;
+        }
+
+        /* 3D Flight Arena Containers */
+        .arena-air {
+            position: relative;
+            width: 100%;
+            height: 460px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: inset 0 8px 16px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .side-a .arena-air { background: radial-gradient(circle, #16103c, #050314); }
+        .side-b .arena-air { background: radial-gradient(circle, #fffbf0, #f7ce74); }
+
+        /* Floating 3D Tokens */
+        .floating-choice {
+            position: absolute;
+            padding: 10px 20px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s ease;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.4);
+        }
+
+        /* Team A Sparkly Spheres */
+        .side-a .floating-choice {
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            padding: 0;
+            background: radial-gradient(circle at 30% 30%, #54a0ff, #10ac84, #006241);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4), inset -5px -5px 12px rgba(0,0,0,0.5), inset 5px 5px 12px rgba(255,255,255,0.3);
+        }
+
+        /* Team B Candy Pills */
+        .side-b .floating-choice {
+            border-radius: 25px;
+            background: radial-gradient(circle at 20% 30%, #ff9ff3, #f368e0, #9b1285);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2), inset -4px -4px 8px rgba(0,0,0,0.4), inset 4px 4px 8px rgba(255,255,255,0.5);
+            border: 2px solid #fff;
+        }
+
+        /* Dynamic Alternative Multi-Shading rulesets natively */
+        .side-a .floating-choice:nth-child(3n) { background: radial-gradient(circle at 30% 30%, #ff9ff3, #ff4757, #a0001a); }
+        .side-a .floating-choice:nth-child(3n+1) { background: radial-gradient(circle at 30% 30%, #ffeaa7, #ff9f43, #b35d00); }
+        
+        .side-b .floating-choice:nth-child(3n) { background: radial-gradient(circle at 20% 30%, #ffeaa7, #ff9f43, #b35d00); }
+        .side-b .floating-choice:nth-child(3n+1) { background: radial-gradient(circle at 20% 30%, #a8ff78, #78e08f, #1e6b36); }
+
+        .floating-choice:hover {
+            transform: scale(1.15) rotate(-3deg);
+            z-index: 100;
+        }
+
+        /* --- RESULTS SCREEN --- */
+        .results-box {
+            max-width: 750px;
+            margin: 30px auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 32px;
+            border: 4px solid #fff;
+        }
+
+        .winner-banner {
+            font-family: 'Fredoka One', cursive;
+            font-size: 38px;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .results-table th, .results-table td {
+            padding: 15px;
+            font-size: 20px;
+            font-weight: 900;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .results-table th {
+            font-family: 'Fredoka One', cursive;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ff9ff3;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <h1>✨ 3D S-V AGREEMENT: 5-LEVEL SHOWDOWN! ✨</h1>
+
+    <div id="setup-screen" class="screen active">
+        <div class="setup-box">
+            <h2>Enter Team Names</h2>
+            <div class="setup-inputs">
+                <div class="input-card a">
+                    <label style="color: #4af2ff;">🌌 Group A (Cosmic)</label><br><br>
+                    <input type="text" id="nameA-input" value="Team Alpha">
+                </div>
+                <div class="input-card b">
+                    <label style="color: #ff9f43;">🍭 Group B (Candy)</label><br><br>
+                    <input type="text" id="nameB-input" value="Team Bravo">
+                </div>
+            </div>
+            <button class="start-btn" onclick="initiateBattle()">START LEVEL CHALLENGE 🚀</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div class="timer-wrapper">
+            <div id="timer-bubble">⏱️ 60s</div>
+        </div>
+        
+        <div class="split-arena">
+            <div class="game-side side-a">
+                <div class="side-header">
+                    <span id="label-teamA" class="team-title">Team Alpha</span>
+                    <div class="meta-pills">
+                        <span id="levelA-pill" class="pill level-pill">Level 1</span>
+                        <span class="pill">Q: <span id="scoreA-val">1/5</span></span>
+                    </div>
+                </div>
+                <div id="questionA-box" class="question-box">Loading...</div>
+                <div id="arenaA" class="arena-air"></div>
+            </div>
+
+            <div class="game-side side-b">
+                <div class="side-header">
+                    <span id="label-teamB" class="team-title">Team Bravo</span>
+                    <div class="meta-pills">
+                        <span id="levelB-pill" class="pill level-pill">Level 1</span>
+                        <span class="pill">Q: <span id="scoreB-val">1/5</span></span>
+                    </div>
+                </div>
+                <div id="questionB-box" class="question-box">Loading...</div>
+                <div id="arenaB" class="arena-air"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="results-screen" class="screen">
+        <div class="results-box">
+            <div id="winner-text" class="winner-banner">Analyzing results...</div>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Highest Level Reached</th>
+                        <th>Total Correct Answers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="color: #4af2ff;">
+                        <td id="table-nameA">Group A</td>
+                        <td id="table-levelA">Level 1</td>
+                        <td id="table-scoreA">0</td>
+                    </tr>
+                    <tr style="color: #ff9ff3;">
+                        <td id="table-nameB">Group B</td>
+                        <td id="table-levelB">Level 1</td>
+                        <td id="table-scoreB">0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="start-btn" onclick="location.reload()">PLAY AGAIN 🔄</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 5 Progressive Difficulty Levels, each containing 5 curated questions.
+    // 1 Correct Answer + 9 Distractors = 10 floating elements total.
+    const levelsCampaign = {
+        1: [ // Level 1: Simple Singular vs Plural Subjects
+            { q: "The playful puppy ______ loudly at the mailman.", right: "barks", wrong: ["bark", "barking", "are barking", "were bark", "have barked", "do bark", "barked", "stands", "runs"] },
+            { q: "Many students ______ walking to school today.", right: "are", wrong: ["is", "was", "am", "be", "been", "has", "have been", "does", "makes"] },
+            { q: "She ______ her homework right after dinner.", right: "does", wrong: ["do", "doing", "done", "are doing", "were done", "has done", "am doing", "goes", "likes"] },
+            { q: "The delicious apples ______ sweet and juicy.", right: "taste", wrong: ["tastes", "tasting", "is taste", "was taste", "has tasted", "tasted", "smells", "feels", "looks"] },
+            { q: "He ______ how to solve this easy math problem.", right: "knows", wrong: ["know", "knowing", "is know", "have known", "are knowing", "do know", "knew", "thinks", "sees"] }
+        ],
+        2: [ // Level 2: Compound Subjects connected by 'And', or Compound Distractors
+            { q: "My brother and my sister ______ video games together.", right: "play", wrong: ["plays", "playing", "is playing", "was playing", "has played", "played", "runs", "likes", "jumps"] },
+            { q: "The cats and the dog ______ eating their lunch.", right: "are", wrong: ["is", "was", "am", "be", "been", "has", "have", "does", "do"] },
+            { q: "Bread and butter ______ our favorite breakfast item.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "Both Marcus and Maya ______ to join the track team.", right: "want", wrong: ["wants", "wanting", "is wanting", "was wanting", "has wanted", "wanted", "likes", "tries", "hopes"] },
+            { q: "The coach and the players ______ arriving at the gym now.", right: "are", wrong: ["is", "was", "am", "be", "been", "has", "have", "does", "go"] }
+        ],
+        3: [ // Level 3: Intervening Phrases (along with, as well as, together with)
+            { q: "The teacher, along with her pupils, ______ watching the movie.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "The captain, as well as his crew members, ______ tough.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "The bags of popcorn ______ sitting on the counter.", right: "are", wrong: ["is", "was", "am", "be", "been", "has", "have", "does", "sits"] },
+            { q: "The actress, escorted by her managers, ______ arriving today.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "Excitement, in addition to nervousness, ______ causes errors.", right: "often", wrong: ["cause", "causing", "are cause", "were cause", "have caused", "do cause", "makes", "creates", "brings"] }
+        ],
+        4: [ // Level 4: Indefinite Pronouns (Everyone, Neither/Nor, Either/Or close match rules)
+            { q: "Neither the parents nor the little child ______ happy.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "Every one of the missing puzzle pieces ______ been found.", right: "has", wrong: ["have", "is", "are", "was", "were", "be", "been", "do", "does"] },
+            { q: "Either the cookies or the large cake ______ next to the fridge.", right: "sits", wrong: ["sit", "sitting", "are sitting", "were sitting", "have sat", "stands", "looks", "lays", "stays"] },
+            { q: "Somebody ______ left their boots inside the muddy hallway.", right: "has", wrong: ["have", "is", "are", "was", "were", "be", "been", "do", "does"] },
+            { q: "Each of the competition winners ______ a shiny blue ribbon.", right: "receives", wrong: ["receive", "receiving", "are receiving", "were receive", "have received", "gets", "wins", "takes", "holds"] }
+        ],
+        5: [ // Level 5: Challenge Rules (Collective Nouns, Distances, Money, Special Plural Words)
+            { q: "The flock of wild geese ______ flying across the sky.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "Ten dollars ______ a high price for a small notebook.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "Civics ______ a subject that requires a lot of reading.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "Three miles ______ a long distance for a young child to run.", right: "is", wrong: ["are", "were", "am", "be", "been", "have", "has", "do", "does"] },
+            { q: "The dynamics of the class orchestra ______ changed drastically.", right: "have", wrong: ["has", "is", "was", "are", "am", "be", "been", "does", "having"] }
+        ]
+    };
+
+    let groupNames = { A: '', B: '' };
+    let currentLevel = { A: 1, B: 1 };
+    let questionIndex = { A: 0, B: 0 };
+    let totalCorrectAnswers = { A: 0, B: 0 };
+
+    let timeRemaining = 60;
+    let clockInterval;
+    let physicsId;
+    let movingElements = [];
+
+    function initiateBattle() {
+        groupNames.A = document.getElementById('nameA-input').value.trim() || "Team Alpha";
+        groupNames.B = document.getElementById('nameB-input').value.trim() || "Team Bravo";
+
+        document.getElementById('label-teamA').innerText = groupNames.A;
+        document.getElementById('label-teamB').innerText = groupNames.B;
+
+        document.getElementById('setup-screen').classList.remove('active');
+        document.getElementById('game-screen').classList.add('active');
+
+        loadSideContent('A');
+        loadSideContent('B');
+
+        startSharedTimer();
+        physicsId = requestAnimationFrame(animateFloatingElements);
+    }
+
+    function startSharedTimer() {
+        clockInterval = setInterval(() => {
+            timeRemaining--;
+            document.getElementById('timer-bubble').innerText = `⏱️ ${timeRemaining}s`;
+            
+            if (timeRemaining <= 0) {
+                stopMatch();
+            }
+        }, 1000);
+    }
+
+    function loadSideContent(side) {
+        const lvl = currentLevel[side];
+        const qIdx = questionIndex[side];
+        
+        const arena = document.getElementById(side === 'A' ? 'arenaA' : 'arenaB');
+        const qBox = document.getElementById(side === 'A' ? 'questionA-box' : 'questionB-box');
+        const scoreVal = document.getElementById(side === 'A' ? 'scoreA-val' : 'scoreB-val');
+        const lvlPill = document.getElementById(side === 'A' ? 'levelA-pill' : 'levelB-pill');
+
+        // Check if team cleared all 5 levels completely
+        if (lvl > 5) {
+            qBox.innerHTML = "<span style='color: var(--success); font-weight:bold;'>🏆 CAMPAIGN COMPLETED! 🏆</span>";
+            arena.innerHTML = "";
+            movingElements = movingElements.filter(item => item.side !== side);
+            
+            if (currentLevel.A > 5 && currentLevel.B > 5) {
+                stopMatch();
+            }
+            return;
+        }
+
+        // Update indicators
+        lvlPill.innerText = `Level ${lvl}`;
+        scoreVal.innerText = `${qIdx + 1}/5`;
+
+        const currentQuestionsArray = levelsCampaign[lvl];
+        const questionData = currentQuestionsArray[qIdx];
+        qBox.innerText = `Q${qIdx + 1}: ${questionData.q}`;
+
+        // Clear previous configurations
+        arena.innerHTML = "";
+        movingElements = movingElements.filter(item => item.side !== side);
+
+        // Package answers pool (1 True + 9 Distractors)
+        let dataset = [
+            { text: questionData.right, isCorrect: true },
+            ...questionData.wrong.map(str => ({ text: str, isCorrect: false }))
+        ];
+        dataset.sort(() => Math.random() - 0.5);
+
+        // Append floating elements to workspace
+        dataset.forEach(choice => {
+            let node = document.createElement('div');
+            node.className = 'floating-choice';
+            node.innerText = choice.text;
+
+            let rx = Math.random() * (arena.clientWidth - 110);
+            let ry = Math.random() * (arena.clientHeight - 80);
+            node.style.left = rx + 'px';
+            node.style.top = ry + 'px';
+
+            let vx = (Math.random() - 0.5) * 4.5;
+            let vy = (Math.random() - 0.5) * 4.5;
+            if (Math.abs(vx) < 0.7) vx = 1.8; 
+            if (Math.abs(vy) < 0.7) vy = 1.8;
+
+            node.onclick = () => {
+                if (choice.isCorrect) {
+                    totalCorrectAnswers[side]++;
+                    questionIndex[side]++;
+                    
+                    // Progress to next level if 5 questions are complete
+                    if (questionIndex[side] >= 5) {
+                        currentLevel[side]++;
+                        questionIndex[side] = 0;
+                    }
+                    loadSideContent(side);
+                } else {
+                    node.style.background = 'radial-gradient(circle at 30% 30%, #ff7675, #d63031, #800000)';
+                    setTimeout(() => { node.style.background = ''; }, 350);
+                }
+            };
+
+            arena.appendChild(node);
+
+            movingElements.push({
+                element: node,
+                container: arena,
+                side: side,
+                x: rx,
+                y: ry,
+                dx: vx,
+                dy: vy,
+                w: side === 'A' ? 65 : 95,
+                h: side === 'A' ? 65 : 45
+            });
+        });
+    }
+
+    function animateFloatingElements() {
+        movingElements.forEach(obj => {
+            obj.x += obj.dx;
+            obj.y += obj.dy;
+
+            let limX = obj.container.clientWidth;
+            let limY = obj.container.clientHeight;
+
+            if (obj.x <= 0) {
+                obj.x = 0;
+                obj.dx *= -1;
+            } else if (obj.x + obj.w >= limX) {
+                obj.x = limX - obj.w;
+                obj.dx *= -1;
+            }
+
+            if (obj.y <= 0) {
+                obj.y = 0;
+                obj.dy *= -1;
+            } else if (obj.y + obj.h >= limY) {
+                obj.y = limY - obj.h;
+                obj.dy *= -1;
+            }
+
+            obj.element.style.left = obj.x + 'px';
+            obj.element.style.top = obj.y + 'px';
+        });
+
+        physicsId = requestAnimationFrame(animateFloatingElements);
+    }
+
+    function stopMatch() {
+        clearInterval(clockInterval);
+        cancelAnimationFrame(physicsId);
+
+        document.getElementById('game-screen').classList.remove('active');
+        document.getElementById('results-screen').classList.add('active');
+
+        document.getElementById('table-nameA').innerText = groupNames.A;
+        document.getElementById('table-scoreA').innerText = totalCorrectAnswers.A;
+        document.getElementById('table-levelA').innerText = currentLevel.A > 5 ? "Cleared All! 🏆" : `Level ${currentLevel.A}`;
+
+        document.getElementById('table-nameB').innerText = groupNames.B;
+        document.getElementById('table-scoreB').innerText = totalCorrectAnswers.B;
+        document.getElementById('table-levelB').innerText = currentLevel.B > 5 ? "Cleared All! 🏆" : `Level ${currentLevel.B}`;
+
+        let msg = "";
+        if (totalCorrectAnswers.A > totalCorrectAnswers.B) {
+            msg = `🏆 🎉 ${groupNames.A} Wins the Showdown! 🎉 🏆`;
+        } else if (totalCorrectAnswers.B > totalCorrectAnswers.A) {
+            msg = `🏆 🎉 ${groupNames.B} Wins the Showdown! 🎉 🏆`;
+        } else {
+            msg = "🤝 Spectacular Tie Match! Both Groups are Master Grammarians! 🤝";
+        }
+        document.getElementById('winner-text').innerText = msg;
+    }
+</script>
+</body>
+    <nav class="navbar">
+    <div class="logo">My Portfolio</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</nav>
+</html>
